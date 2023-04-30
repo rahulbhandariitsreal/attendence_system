@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:background="#242724"
+    android:layout_gravity="center"
+    android:layout_height="650dp">
+
+
+    <TextView
+        android:text="LOGIN"
+        android:layout_margin="10dp"
+        android:textColor="@color/maincolor"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+    <ImageView
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/frnds"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        />
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginprogress"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:visibility="gone"
+        />
+
+
+    <EditText
+        android:layout_margin="10dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:padding="9dp"
+        android:background="@drawable/edit_textback"
+        android:id="@+id/lroolno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Roll No." />
+
+
+
+    <EditText
+        android:textColorHint="@color/white"
+        android:padding="9dp"
+        android:layout_margin="10dp"
+
+        android:textColor="@color/white"
+        android:paddingBottom="5dp"
+        android:background="@drawable/edit_textback"
+        android:id="@+id/lname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name" />
+
+
+
+    <EditText
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:paddingBottom="5dp"
+        android:padding="9dp"
+        android:background="@drawable/edit_textback"
+        android:id="@+id/lemail"
+        android:layout_width="match_parent"
+
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Enter Email" />
+
+    <EditText
+        android:textColorHint="@color/white"
+        android:padding="9dp"
+        android:layout_margin="10dp"
+        android:paddingBottom="5dp"
+
+        android:textColor="@color/white"
+        android:background="@drawable/edit_textback"
+        android:id="@+id/lpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Enter Password" />
+
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login" />
+
+</LinearLayout>

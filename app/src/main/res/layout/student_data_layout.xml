@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_marginTop="50dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.Registration_Activity"
+    android:orientation="vertical"
+android:layout_gravity="center"
+    android:background="#212325"
+  >
+
+
+    <ImageView
+        android:id="@+id/student_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/baseline_person_24"
+        />
+
+    <TextView
+        android:layout_margin="5dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Upload Image"
+        />
+
+    <EditText
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_textback"
+        android:padding="20dp"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:id="@+id/sname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/sbarnch"
+        android:layout_width="match_parent"
+        android:background="@drawable/edit_textback"
+        android:padding="20dp"
+        android:textColorHint="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:hint="Branch Name" />
+
+    <EditText
+        android:id="@+id/srollno"
+        android:textStyle="bold"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:background="@drawable/edit_textback"
+        android:padding="20dp"
+        android:layout_height="wrap_content"
+        android:hint="Roll No." />
+
+    <TextView
+        android:id="@+id/sdob"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_textback"
+        android:padding="20dp"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/baseline_date_range_24"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:text="Date of Birth" />
+
+
+
+    <EditText
+        android:id="@+id/sfather"
+        android:layout_width="match_parent"
+        android:background="@drawable/edit_textback"
+        android:padding="20dp"
+        android:textColorHint="@color/white"
+        android:layout_margin="5dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:hint="Father's Name" />
+
+    <TextView
+        android:id="@+id/ssubmit"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/newback"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
+
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:background="#212325"
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Verification"
+        android:textColor="@color/maincolor"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/frnds"
+        android:layout_gravity="center"
+        />
+
+
+    <EditText
+        android:background="@drawable/edit_textback"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:id="@+id/edusername"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Admin Username"
+        android:inputType="textEmailAddress" />
+
+
+    <EditText
+        android:background="@drawable/edit_textback"
+        android:layout_margin="10dp"
+        android:id="@+id/edpaddword"
+        android:padding="10dp"
+        android:textColorHint="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:hint="Enter Password"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:background="@drawable/newback"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:id="@+id/edgetaccess"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:text="Get Admin Access" />
+
+</LinearLayout>
+
+
+
+
+
+
+
