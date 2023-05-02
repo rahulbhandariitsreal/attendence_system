@@ -8,12 +8,13 @@
     tools:context=".activity.Registration_Activity"
     android:orientation="vertical"
 android:layout_gravity="center"
-    android:background="#212325"
-  >
+    android:background="#212325">
 
 
     <ImageView
+        android:padding="10dp"
         android:id="@+id/student_image"
+        android:background="@drawable/edit_textback"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
@@ -58,6 +59,7 @@ android:layout_gravity="center"
         android:id="@+id/srollno"
         android:textStyle="bold"
         android:textColorHint="@color/white"
+        android:inputType="number"
         android:textColor="@color/white"
         android:layout_width="match_parent"
         android:background="@drawable/edit_textback"

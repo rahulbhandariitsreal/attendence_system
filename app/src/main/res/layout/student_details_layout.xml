@@ -11,6 +11,8 @@
     <ImageView
         android:id="@+id/SD_student_image"
         android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:background="@drawable/edit_textback"
         android:layout_margin="30dp"
         android:layout_width="200dp"
         android:layout_height="200dp"

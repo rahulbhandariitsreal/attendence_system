@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:background="@drawable/edit_textback"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:scaleType="center"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_height="250dp"
+        android:id="@+id/student_admin_image"
+        />
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/student_admin_image"
+        android:id="@+id/student_admin_details"
+        android:text="hello"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/edit_textback"
+        android:padding="7dp"
+        />
+
+</RelativeLayout>

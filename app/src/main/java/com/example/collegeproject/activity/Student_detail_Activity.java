@@ -62,6 +62,7 @@ public class Student_detail_Activity extends AppCompatActivity {
                 if(Mystudent.getName()==null){
                     binding.studentlayout.studentprogressbar.setVisibility(View.GONE);
                     Toast.makeText(Student_detail_Activity.this, "No data found", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Student_detail_Activity.this,MainActivity.class));
                 }
             }
         });

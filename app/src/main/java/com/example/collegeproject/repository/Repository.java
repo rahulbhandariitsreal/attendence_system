@@ -5,9 +5,11 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.collegeproject.activity.Admin_Activity;
 import com.example.collegeproject.activity.Registration_Activity;
 import com.example.collegeproject.model.Student;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -48,6 +50,59 @@ public class Repository {
     }
 
 
+    public void deleteimage(Student student){
+        storageReference=firebaseStorage.getReference().child(student.getUniqueID());
+        storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+
+            }
+        });
+    }
+
+
+    public void editstudentdetail(Student student){
+databaseReference=firebaseDatabase.getReference().child("PTU").child(student.getUniqueID());
+        databaseReference.setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+
+                    Log.v("TAGGY","Updated  succesfully");
+
+                }else{
+                    Log.v("TAGGY","updated to upload");
+                }
+            }
+        });
+
+    }
+
+    public void removestudentdetail(Student student){
+
+        databaseReference=firebaseDatabase.getReference().child("PTU").child(student.getUniqueID());
+        databaseReference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Log.v("TAG","deleted");
+                    ExecutorService executorService=Executors.newSingleThreadExecutor();
+                    executorService.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            deleteimage(student);
+                        }
+                    });
+
+                }else{
+                    Log.v("TAG","falied to delete");
+                }
+            }
+        });
+
+    }
+
+
     public LiveData<ArrayList<Student>> getstudentlist(){
         ArrayList<Student> students=new ArrayList<>();
         databaseReference=firebaseDatabase.getReference().child("PTU");
@@ -69,8 +124,6 @@ public class Repository {
         return mutableLiveDatastudent;
     }
 
-
-
     public void register(String email,String password){
         ExecutorService executorService= Executors.newSingleThreadExecutor();
         executorService.execute(new Runnable() {
@@ -81,6 +134,7 @@ public class Repository {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Log.v("TAG","registration succesfull");
+                            mAuth.signOut();
                         }else{
                             Log.v("TAG","failed to register");
                         }
@@ -96,8 +150,8 @@ public class Repository {
         if(image_uri == null){
             return;
         }
-        databaseReference=firebaseDatabase.getReference().child("PTU").child(student.getRoll_no()+student.getName());
-        storageReference=firebaseStorage.getReference().child(student.getRoll_no()+student.getBranch_name());
+        databaseReference=firebaseDatabase.getReference().child("PTU").child(student.getUniqueID());
+        storageReference=firebaseStorage.getReference().child(student.getUniqueID());
         storageReference.putFile(image_uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
 
             @Override

@@ -1,5 +1,6 @@
 package com.example.collegeproject.activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.collegeproject.R;
 import com.example.collegeproject.databinding.ActivityMainBinding;
@@ -101,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
                     savedstudentsharedpre(email,password);
                     Intent intent=new Intent(MainActivity.this,Admin_Activity.class);
                     startActivity(intent);
+                }else{
+                    Toast.makeText(MainActivity.this, "Wrong Details", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -148,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent=new Intent(MainActivity.this,Registration_Activity.class);
                     intent.putExtra("email",email);
                     intent.putExtra("password",password);
-                    startActivity(intent);
+                    startActivityForResult(intent,11);
                 }
             }
         });
@@ -161,6 +165,14 @@ public class MainActivity extends AppCompatActivity {
 // Create and show the AlertDialog
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==11){
+            Toast.makeText(this, "Successfully Registered", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public boolean isValidEmailAddress(String email) {

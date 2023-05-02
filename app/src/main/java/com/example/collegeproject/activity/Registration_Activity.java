@@ -3,6 +3,7 @@ package com.example.collegeproject.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -108,6 +109,10 @@ public class Registration_Activity extends AppCompatActivity {
                     binding.dataStudent.sname.setError("Invalid field");
                 } else {
                     binding.progressbar.setVisibility(View.VISIBLE);
+                   int ranomfirsttwo= (int) (Math.random() * 1000);
+                    int ranomlasttwo= (int) (Math.random() * 1000);
+                    String uniID=ranomfirsttwo+"PTU"+ranomlasttwo;
+                    student.setUniqueID(uniID);
                     student.setName(name);
                     student.setfName(fathername);
                     student.setBranch_name(branch);
@@ -118,12 +123,14 @@ public class Registration_Activity extends AppCompatActivity {
                         @Override
                         public void run() {
                             viewModel.upload_student_data(student, selectedimageuri,email,password);
+
                         }
                     });
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(Registration_Activity.this,Login_Activity.class));
+                            Intent returnIntent = new Intent();
+                            setResult(Activity.RESULT_OK,returnIntent);
                             finish();
                         }
                     },6000);

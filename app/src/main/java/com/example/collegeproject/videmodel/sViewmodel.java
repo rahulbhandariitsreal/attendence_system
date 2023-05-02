@@ -27,6 +27,14 @@ public class sViewmodel extends ViewModel {
        return arrayListLiveData;
     }
 
+    public void editstudentdetails(Student student){
+        repository.editstudentdetail(student);
+    }
+
+    public void deletestudentdetails(Student student){
+        repository.removestudentdetail(student);
+    }
+
 
 
 

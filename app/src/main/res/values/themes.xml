@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.CollegeProject" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">#E38E68</item>
+        <item name="colorPrimary">#D38B6E</item>
         <item name="colorPrimaryDark">#DF8055</item>
-        <item name="colorAccent">@color/maincolor</item>
+        <item name="colorAccent">#4C3124</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 

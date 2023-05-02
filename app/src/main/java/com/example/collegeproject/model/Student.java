@@ -1,5 +1,7 @@
 package com.example.collegeproject.model;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 public class Student {
@@ -12,13 +14,15 @@ public class Student {
 
     private String emailID;
 
+    private String uniqueID;
+
 
 
     public Student() {
+
     }
 
-
-    public Student(String name, String fName, String dob, String roll_no, String branch_name, String image_url, String emailID) {
+    public Student(String name, String fName, String dob, String roll_no, String branch_name, String image_url, String emailID,String uniqueID) {
         this.name = name;
         this.fName = fName;
         this.dob = dob;
@@ -26,6 +30,7 @@ public class Student {
         this.branch_name = branch_name;
         this.image_url = image_url;
         this.emailID = emailID;
+        this.uniqueID=uniqueID;
     }
 
     public String getName() {
@@ -84,6 +89,13 @@ public class Student {
         this.emailID = emailID;
     }
 
+    public String getUniqueID() {
+        return uniqueID;
+    }
+
+    public void setUniqueID(String uniqueID) {
+        this.uniqueID = uniqueID;
+    }
 
     public String getstudentdetail() {
         String details="Name: "+name+"\nRoll No: "+roll_no+"\nFather Name :"+fName+"\nBranch: "+branch_name

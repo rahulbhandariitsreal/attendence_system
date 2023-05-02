@@ -37,7 +37,6 @@
     </LinearLayout>
 
 
-
   <include
       layout="@layout/student_details_layout"
       android:id="@+id/studentlayout"
