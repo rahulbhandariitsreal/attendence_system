@@ -37,7 +37,7 @@
         android:text="STUDENT DETAILS"
         android:background="@drawable/edit_textback"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         />
 
 </LinearLayout>

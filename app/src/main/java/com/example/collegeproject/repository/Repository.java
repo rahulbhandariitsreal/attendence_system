@@ -134,7 +134,6 @@ databaseReference=firebaseDatabase.getReference().child("PTU").child(student.get
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Log.v("TAG","registration succesfull");
-                            mAuth.signOut();
                         }else{
                             Log.v("TAG","failed to register");
                         }

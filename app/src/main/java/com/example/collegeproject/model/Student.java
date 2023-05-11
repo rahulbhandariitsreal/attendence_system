@@ -99,7 +99,7 @@ public class Student {
 
     public String getstudentdetail() {
         String details="Name: "+name+"\nRoll No: "+roll_no+"\nFather Name :"+fName+"\nBranch: "+branch_name
-                +"\nDob :"+dob+"\nFather Name :"+fName+"\nEmail ID :"+emailID;
+                +"\nDob :"+dob+"\nEmail ID :"+emailID;
         return details;
     }
 }

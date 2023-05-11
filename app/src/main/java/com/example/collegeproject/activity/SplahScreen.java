@@ -37,6 +37,7 @@ public class SplahScreen extends AppCompatActivity {
             @Override
             public void run() {
                 startActivity(new Intent(SplahScreen.this, MainActivity.class));
+                finish();
             }
         },2000);
 
