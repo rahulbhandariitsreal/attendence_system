@@ -15,7 +15,7 @@ Setup Instructions
 Clone the repository to your local machine.
 bash
 Copy code
-git clone https://github.com/yourusername/student-application.git
+git clone https://github.com/rahulbhandariitsreal/attendence_system
 Open Android Studio and select "Open an existing Android Studio project."
 
 Navigate to the cloned repository's directory and select the project.
