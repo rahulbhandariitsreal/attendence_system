@@ -1,10 +1,15 @@
 package com.example.collegeproject.model;
 
 import android.util.Log;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 
-public class Student {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Student  {
     private String name;
     private String fName;
     private String dob;
@@ -16,13 +21,15 @@ public class Student {
 
     private String uniqueID;
 
+    private String phone_number;
+
 
 
     public Student() {
 
     }
 
-    public Student(String name, String fName, String dob, String roll_no, String branch_name, String image_url, String emailID,String uniqueID) {
+    public Student(String name, String fName, String dob, String roll_no, String branch_name, String image_url, String emailID, String uniqueID, String phone_number) {
         this.name = name;
         this.fName = fName;
         this.dob = dob;
@@ -30,7 +37,16 @@ public class Student {
         this.branch_name = branch_name;
         this.image_url = image_url;
         this.emailID = emailID;
-        this.uniqueID=uniqueID;
+        this.uniqueID = uniqueID;
+        this.phone_number = phone_number;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public String getName() {
@@ -102,4 +118,6 @@ public class Student {
                 +"\nDob :"+dob+"\nEmail ID :"+emailID;
         return details;
     }
+
+
 }

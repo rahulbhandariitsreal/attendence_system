@@ -139,10 +139,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email=binding.rl2.remil.getText().toString();
                 String password=binding.rl2.rpassword.getText().toString();
+                String number=binding.rl2.phoneNo.getText().toString();
                 // Handle the OK button click here
                 if(TextUtils.isEmpty(email)){
                     binding.rl2.remil.setError("Invalid field");
-                }else if(TextUtils.isEmpty(password)){
+                }else if(!email.contains("@ggi.ac.in")){
+                    binding.rl2.remil.setError("Invalid email");
+                    Toast.makeText(MainActivity.this, "use college email", Toast.LENGTH_SHORT).show();
+                }else if(number.length()!=10){
+                    binding.rl2.phoneNo.setError("Invalid number");
+                    Toast.makeText(MainActivity.this, "use 10 digit", Toast.LENGTH_SHORT).show();
+                }
+                else if(TextUtils.isEmpty(password)){
                     binding.rl2.rpassword.setError("Invalid field");
                 }else if(password.length()<8){
                     binding.rl2.rpassword.setError("minimum 8 character");
@@ -152,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent=new Intent(MainActivity.this,Registration_Activity.class);
                     intent.putExtra("email",email);
                     intent.putExtra("password",password);
+                    intent.putExtra("pnumber",number);
                     startActivityForResult(intent,11);
                 }
             }

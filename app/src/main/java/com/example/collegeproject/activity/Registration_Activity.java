@@ -37,7 +37,7 @@ public class Registration_Activity extends AppCompatActivity {
     private Uri selectedimageuri;
     private String email;
     private String password;
-
+    private String mnumber;
     private sViewmodel viewModel;
 
     @Override
@@ -49,9 +49,9 @@ public class Registration_Activity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(sViewmodel.class);
         email=getIntent().getStringExtra("email");
         password=getIntent().getStringExtra("password");
+        mnumber=getIntent().getStringExtra("pnumber");
         student.setEmailID(email);
-
-
+        binding.dataStudent.pnumber.setText(mnumber);
         binding.dataStudent.studentImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +96,7 @@ public class Registration_Activity extends AppCompatActivity {
                 String fathername = binding.dataStudent.sfather.getText().toString();
                 String branch = binding.dataStudent.sbarnch.getText().toString();
                 String rollno = binding.dataStudent.srollno.getText().toString();
+                String number=binding.dataStudent.pnumber.getText().toString();
 
                 if (TextUtils.isEmpty(name)) {
                     binding.dataStudent.sname.setError("Invalid field");
@@ -107,7 +108,10 @@ public class Registration_Activity extends AppCompatActivity {
                     binding.dataStudent.srollno.setError("Invalid field");
                 } else if (TextUtils.isEmpty(binding.dataStudent.sdob.getText().toString())) {
                     binding.dataStudent.sname.setError("Invalid field");
-                } else {
+                }else if (number.length()!=10) {
+                    binding.dataStudent.pnumber.setError("Invalid number");
+                }
+                    else {
                     binding.progressbar.setVisibility(View.VISIBLE);
                    int ranomfirsttwo= (int) (Math.random() * 1000);
                     int ranomlasttwo= (int) (Math.random() * 1000);
@@ -117,6 +121,7 @@ public class Registration_Activity extends AppCompatActivity {
                     student.setfName(fathername);
                     student.setBranch_name(branch);
                     student.setRoll_no(rollno);
+                    student.setPhone_number(number);
                     savedstudentsharedpre(name,rollno);
                     ExecutorService executorService = Executors.newSingleThreadExecutor();
                     executorService.execute(new Runnable() {

@@ -1,10 +1,14 @@
 package com.example.collegeproject.adapter;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.media.Image;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,17 +22,20 @@ import com.example.collegeproject.model.Student;
 import com.example.collegeproject.model.Task_Diff_call;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Adapter_Admin_Studentlist extends RecyclerView.Adapter<Adapter_Admin_Studentlist.viewHolder> {
+public class Adapter_Admin_Studentlist extends RecyclerView.Adapter<Adapter_Admin_Studentlist.viewHolder>  {
 
 
     private ArrayList<Student> studentArrayList=new ArrayList<>();
     private Context context;
 
+    private ArrayList<Student> filteredData=new ArrayList<>();
     private ItemClcikListener clcikListener;
 
-    public Adapter_Admin_Studentlist(Context context) {
+    public Adapter_Admin_Studentlist(Context context,ArrayList<Student> students) {
         this.context = context;
+        studentArrayList=students;
     }
 
     @NonNull
@@ -70,6 +77,8 @@ public class Adapter_Admin_Studentlist extends RecyclerView.Adapter<Adapter_Admi
             itemView.setOnClickListener(this);
         }
 
+
+
         @Override
         public void onClick(View v) {
 if(clcikListener !=null){
@@ -88,8 +97,12 @@ clcikListener.onClick(v,getAdapterPosition());
         final DiffUtil.DiffResult result = DiffUtil.calculateDiff
                 (new Task_Diff_call(studentArrayList,newlisttask),false);
         studentArrayList = newlisttask;
+        filteredData=studentArrayList;
         result.dispatchUpdatesTo(Adapter_Admin_Studentlist.this);
    notifyDataSetChanged();
     }
+
+
+
 
 }

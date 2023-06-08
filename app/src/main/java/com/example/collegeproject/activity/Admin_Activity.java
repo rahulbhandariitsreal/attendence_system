@@ -21,10 +21,14 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -59,11 +63,13 @@ public class Admin_Activity extends AppCompatActivity implements Adapter_Admin_S
     private sViewmodel  viewmodel;
 
     private ArrayList<Student> studentslist=new ArrayList<>();
+    private ArrayList<Student>  filteredData=new ArrayList<>();
 
     private  FirebaseDatabase firebaseDatabase;
     private RecyclerView recyclerView;
 
     private Adapter_Admin_Studentlist adapter_admin_studentlist;
+    private SearchView sear_bar_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +82,9 @@ public class Admin_Activity extends AppCompatActivity implements Adapter_Admin_S
 
         viewmodel=new ViewModelProvider(this).get(sViewmodel.class);
         recyclerView=findViewById(R.id.admin_recyclerview);
+        sear_bar_text=findViewById(R.id.search_view);
+
+
 
 
         activityAdminBinding.addstudent.setOnClickListener(new View.OnClickListener() {
@@ -85,14 +94,28 @@ public class Admin_Activity extends AppCompatActivity implements Adapter_Admin_S
             }
         });
         recyclerView.setHasFixedSize(true);
-        adapter_admin_studentlist=new Adapter_Admin_Studentlist(this);
+        adapter_admin_studentlist=new Adapter_Admin_Studentlist(this,studentslist);
         adapter_admin_studentlist.setClcikListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter_admin_studentlist);
 
+
         loaddata();
 
+        sear_bar_text.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+               filter(newText);
+               return true;
+            }
+        });
 
 
 
@@ -163,6 +186,7 @@ builder.show();
                             Toast.makeText(Admin_Activity.this, "No data found", Toast.LENGTH_SHORT).show();
                         }else {
                             adapter_admin_studentlist.setstudent(studentslist);
+
                         }
                         activityAdminBinding.adminProgressbar.setVisibility(View.GONE);
                     }
@@ -172,6 +196,8 @@ builder.show();
                         Toast.makeText(Admin_Activity.this, "Database error", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+
 
 
 
@@ -388,6 +414,24 @@ builder.show();
 // Create and show the AlertDialog
         alertDialog.show();
     }
+
+
+    public void filter(String query) {
+        filteredData.clear();
+        if (TextUtils.isEmpty(query)) {
+            filteredData.addAll(studentslist);
+
+        } else {
+            query = query.toLowerCase();
+            for (Student item : studentslist) {
+                if (item.getName().toLowerCase().contains(query)) {
+                    filteredData.add(item);
+                }
+            }
+        }
+        adapter_admin_studentlist.setstudent(filteredData);
+    }
+
 
 
 

@@ -41,6 +41,18 @@
             android:hint="Enter Email"
             android:inputType="textEmailAddress" />
 
+    <EditText
+        android:background="@drawable/edit_textback"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:id="@+id/phone_no"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Mobile Number"
+        android:inputType="number" />
+
 
         <EditText
             android:background="@drawable/edit_textback"
